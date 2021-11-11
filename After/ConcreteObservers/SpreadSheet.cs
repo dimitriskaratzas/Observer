@@ -1,4 +1,5 @@
-﻿using After.Observer;
+﻿using After.ConcreteSubject;
+using After.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,15 @@ namespace After.ConcreteObservers
 {
     public class SpreadSheet : IObserver
     {
-        public void Update(int val)
+        private DataSource _dataSource;
+
+        public SpreadSheet(DataSource dataSource)
         {
-            Console.WriteLine("Spreadsheet got notified " + val);
+            _dataSource = dataSource;
+        }
+        public void Update()
+        {
+            Console.WriteLine("Spreadsheet got notified " + _dataSource.Value);
         }
     }
 }

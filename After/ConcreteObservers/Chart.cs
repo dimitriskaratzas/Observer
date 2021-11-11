@@ -1,4 +1,5 @@
-﻿using After.Observer;
+﻿using After.ConcreteSubject;
+using After.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,15 @@ namespace After.ConcreteObservers
 {
     public class Chart : IObserver
     {
-        public void Update(int val)
+        private DataSource _dataSource;
+
+        public Chart(DataSource dataSource)
         {
-            Console.WriteLine("Chart got notified " + val);
+            _dataSource = dataSource;
+        }
+        public void Update()
+        {
+            Console.WriteLine("Chart got notified " + _dataSource.Value);
         }
     }
 }
