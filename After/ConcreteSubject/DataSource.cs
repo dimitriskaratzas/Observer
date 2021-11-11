@@ -20,7 +20,7 @@ namespace After.ConcreteSubject
             set
             {
                 _value = value;
-                NotifyObservers();
+                NotifyObservers(_value);
             }
         }
     }
